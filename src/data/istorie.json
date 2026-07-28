@@ -1,0 +1,815 @@
+[
+  {
+    "id": "rom-01",
+    "chapterId": "romanitatea",
+    "difficulty": 1,
+    "text": "În ce ani s-a desfășurat al doilea război daco-roman, încheiat cu transformarea Daciei în provincie romană?",
+    "options": ["101–102 d.Hr.", "105–106 d.Hr.", "271–274 d.Hr.", "87–88 d.Hr."],
+    "correctIndex": 1,
+    "explanation": "Al doilea război daco-roman (105–106 d.Hr.), condus de împăratul Traian, s-a încheiat cu înfrângerea lui Decebal și transformarea celei mai mari părți a Daciei în provincie romană."
+  },
+  {
+    "id": "rom-02",
+    "chapterId": "romanitatea",
+    "difficulty": 1,
+    "text": "Ce împărat roman a retras administrația și armata din provincia Dacia?",
+    "options": ["Traian", "Hadrian", "Aurelian", "Constantin cel Mare"],
+    "correctIndex": 2,
+    "explanation": "Împăratul Aurelian a retras armata și administrația romană la sud de Dunăre în anii 271–274 d.Hr., sub presiunea atacurilor migratorilor."
+  },
+  {
+    "id": "rom-03",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Cărui cronicar moldovean îi aparține afirmația „de la Rîm ne tragem\"?",
+    "options": ["Miron Costin", "Grigore Ureche", "Ion Neculce", "Dimitrie Cantemir"],
+    "correctIndex": 1,
+    "explanation": "Grigore Ureche, în „Letopisețul Țării Moldovei\", afirmă originea romană a românilor prin celebra formulă „de la Rîm ne tragem\"."
+  },
+  {
+    "id": "rom-04",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Cine este autorul teoriei imigraționiste, formulată în lucrarea „Romänische Studien\" (1871)?",
+    "options": ["Robert Roesler", "Franz Sulzer", "A.D. Xenopol", "Eduard Gibbon"],
+    "correctIndex": 0,
+    "explanation": "Istoricul austriac Robert Roesler a sistematizat teoria imigraționistă în „Romänische Studien\" (1871), susținând că românii ar fi venit în Transilvania după maghiari."
+  },
+  {
+    "id": "rom-05",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Ce scop politic avea teoria imigraționistă (roesleriană)?",
+    "options": [
+      "Justificarea expansiunii Imperiului Otoman",
+      "Contestarea drepturilor politice ale românilor din Transilvania",
+      "Sprijinirea unirii Principatelor Române",
+      "Demonstrarea originii slave a românilor"
+    ],
+    "correctIndex": 1,
+    "explanation": "Teoria imigraționistă urmărea să conteste drepturile istorice ale românilor asupra Transilvaniei, susținând că maghiarii ar fi sosit acolo înaintea românilor."
+  },
+  {
+    "id": "rom-06",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Cui i-a fost adresat memoriul „Supplex Libellus Valachorum\" (1791)?",
+    "options": ["Papei Pius al VI-lea", "Împăratului Leopold al II-lea", "Regelui Ungariei", "Dietei Transilvaniei"],
+    "correctIndex": 1,
+    "explanation": "„Supplex Libellus Valachorum\" a fost trimis în 1791 împăratului habsburgic Leopold al II-lea, cerând drepturi egale pentru românii din Transilvania pe baza vechimii și romanității lor."
+  },
+  {
+    "id": "rom-07",
+    "chapterId": "romanitatea",
+    "difficulty": 1,
+    "text": "Care dintre următorii cărturari a fost reprezentant al Școlii Ardelene?",
+    "options": ["Samuil Micu", "Nicolae Iorga", "Mihail Kogălniceanu", "Vasile Alecsandri"],
+    "correctIndex": 0,
+    "explanation": "Școala Ardeleană i-a avut ca principali reprezentanți pe Samuil Micu, Gheorghe Șincai și Petru Maior, care au susținut originea latină a românilor."
+  },
+  {
+    "id": "rom-08",
+    "chapterId": "romanitatea",
+    "difficulty": 1,
+    "text": "Din ce familie de limbi face parte limba română?",
+    "options": ["Limbi slave", "Limbi romanice", "Limbi germanice", "Limbi fino-ugrice"],
+    "correctIndex": 1,
+    "explanation": "Limba română este o limbă romanică, formată pe baza latinei populare vorbite în spațiul carpato-dunărean, argument esențial al romanității românilor."
+  },
+  {
+    "id": "rom-09",
+    "chapterId": "romanitatea",
+    "difficulty": 3,
+    "text": "Ce umanist de origine română a afirmat în lucrarea „Hungaria\" (1536) originea romană a românilor?",
+    "options": ["Nicolaus Olahus", "Enea Silvio Piccolomini", "Antonio Bonfini", "Jan Laski"],
+    "correctIndex": 0,
+    "explanation": "Nicolaus Olahus, umanist de origine română ajuns arhiepiscop de Esztergom, a susținut în „Hungaria\" (1536) descendența romană a românilor din cele trei țări."
+  },
+  {
+    "id": "rom-10",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Ce monument din Roma ilustrează scenele războaielor daco-romane?",
+    "options": ["Columna lui Traian", "Arcul lui Constantin", "Panteonul", "Columna lui Marcus Aurelius"],
+    "correctIndex": 0,
+    "explanation": "Columna lui Traian, inaugurată în 113 d.Hr. la Roma, prezintă în basorelief scene din cele două războaie daco-romane și este o mărturie a cuceririi Daciei."
+  },
+  {
+    "id": "rom-11",
+    "chapterId": "romanitatea",
+    "difficulty": 3,
+    "text": "Cum îi numeau izvoarele bizantine și occidentale medievale pe români?",
+    "options": ["Geți", "Vlahi", "Iliri", "Panonieni"],
+    "correctIndex": 1,
+    "explanation": "Străinii i-au numit pe români „vlahi\" (cu variantele valahi, blachi, olahi), termen care desemna populațiile romanizate — o dovadă a recunoașterii romanității lor."
+  },
+  {
+    "id": "rom-12",
+    "chapterId": "romanitatea",
+    "difficulty": 2,
+    "text": "Care istoric român a combătut teoria imigraționistă în lucrarea „Teoria lui Roesler\"?",
+    "options": ["A.D. Xenopol", "Vasile Pârvan", "Constantin C. Giurescu", "Gheorghe Brătianu"],
+    "correctIndex": 0,
+    "explanation": "A.D. Xenopol a publicat în 1884 „Teoria lui Roesler\", o demonstrație sistematică a continuității românilor la nordul Dunării."
+  },
+  {
+    "id": "aut-01",
+    "chapterId": "autonomii",
+    "difficulty": 1,
+    "text": "Ce document menționează în 1247 formațiunile politice conduse de Litovoi, Seneslau, Ioan și Farcaș?",
+    "options": [
+      "Diploma Cavalerilor Ioaniți",
+      "Cronica lui Anonymus",
+      "Diploma Andreanum",
+      "Cronica pictată de la Viena"
+    ],
+    "correctIndex": 0,
+    "explanation": "Diploma Cavalerilor Ioaniți (1247) atestă cnezatele lui Ioan și Farcaș și voievodatele lui Litovoi și Seneslau, primele formațiuni politice românești dintre Carpați și Dunăre."
+  },
+  {
+    "id": "aut-02",
+    "chapterId": "autonomii",
+    "difficulty": 1,
+    "text": "Ce bătălie din 1330 a consacrat independența Țării Românești față de Regatul Ungariei?",
+    "options": ["Bătălia de la Posada", "Bătălia de la Rovine", "Bătălia de la Vaslui", "Bătălia de la Călugăreni"],
+    "correctIndex": 0,
+    "explanation": "La Posada (1330), Basarab I l-a învins pe regele maghiar Carol Robert de Anjou, consacrând independența Țării Românești."
+  },
+  {
+    "id": "aut-03",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "Cine a obținut independența Moldovei față de Ungaria, în 1359, respingând autoritatea maghiară?",
+    "options": ["Dragoș", "Bogdan I", "Petru Mușat", "Alexandru cel Bun"],
+    "correctIndex": 1,
+    "explanation": "Bogdan I, voievod din Maramureș, a trecut munții în Moldova și a înlăturat dominația maghiară, întemeind statul independent Moldova (1359)."
+  },
+  {
+    "id": "aut-04",
+    "chapterId": "autonomii",
+    "difficulty": 1,
+    "text": "Care era instituția centrală fundamentală în Țara Românească și Moldova în Evul Mediu?",
+    "options": ["Domnia", "Dieta", "Senatul", "Divanul otoman"],
+    "correctIndex": 0,
+    "explanation": "Domnia era instituția centrală a statelor medievale românești: domnul era stăpânul țării, conducător al armatei, judecător suprem și emitea acte oficiale."
+  },
+  {
+    "id": "aut-05",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "Ce organism îl sprijinea pe domn în conducerea țării, format din mari boieri?",
+    "options": ["Sfatul domnesc", "Adunarea eforilor", "Consiliul de coroană", "Camera obștească"],
+    "correctIndex": 0,
+    "explanation": "Sfatul domnesc, alcătuit din mari boieri și dregători (vornic, logofăt, vistiernic etc.), îl asista pe domn la luarea deciziilor politice, judiciare și fiscale."
+  },
+  {
+    "id": "aut-06",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "În ce an a fost întemeiată Mitropolia Ortodoxă a Țării Românești, cu sediul la Curtea de Argeș?",
+    "options": ["1330", "1359", "1401", "1247"],
+    "correctIndex": 1,
+    "explanation": "În 1359, în timpul lui Nicolae Alexandru, Patriarhia de la Constantinopol l-a recunoscut pe Iachint de Vicina ca mitropolit al Ungrovlahiei."
+  },
+  {
+    "id": "aut-07",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "Ce statut politic a avut Transilvania între secolele XII–XVI?",
+    "options": [
+      "Regat independent",
+      "Voievodat autonom sub suzeranitatea Regatului Ungariei",
+      "Provincie otomană",
+      "Principat sub protecție polonă"
+    ],
+    "correctIndex": 1,
+    "explanation": "Transilvania a fost organizată ca voievodat autonom în cadrul Regatului Ungariei, condus de un voievod numit de rege, până la transformarea în principat autonom sub suzeranitate otomană (1541)."
+  },
+  {
+    "id": "aut-08",
+    "chapterId": "autonomii",
+    "difficulty": 3,
+    "text": "Ce înțelegere încheiată în 1437–1438 excludea românii de la viața politică a Transilvaniei?",
+    "options": ["Unio Trium Nationum", "Pacea de la Oradea", "Tratatul de la Lublau", "Compromisul dualist"],
+    "correctIndex": 0,
+    "explanation": "Unio Trium Nationum (1438) a fost alianța dintre nobilimea maghiară, sași și secui, care a exclus românii — majoritari — din viața politică a Transilvaniei."
+  },
+  {
+    "id": "aut-09",
+    "chapterId": "autonomii",
+    "difficulty": 3,
+    "text": "Sub conducerea cărui domnitor a fost alipită Dobrogea la Țara Românească?",
+    "options": ["Mircea cel Bătrân", "Vlad Țepeș", "Dan al II-lea", "Radu cel Mare"],
+    "correctIndex": 0,
+    "explanation": "Mircea cel Bătrân a stăpânit Dobrogea de la sfârșitul secolului al XIV-lea, teritoriu condus anterior de despotul Dobrotici, integrându-l Țării Românești."
+  },
+  {
+    "id": "aut-10",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "Cine a fost voievod al Transilvaniei între 1441 și 1456, remarcându-se în luptele antiotomane?",
+    "options": ["Iancu de Hunedoara", "Matia Corvin", "Ioan Zápolya", "Sigismund de Luxemburg"],
+    "correctIndex": 0,
+    "explanation": "Iancu de Hunedoara, voievod al Transilvaniei (1441–1456) și guvernator al Ungariei, a condus cruciada târzie antiotomană, culminând cu victoria de la Belgrad (1456)."
+  },
+  {
+    "id": "aut-11",
+    "chapterId": "autonomii",
+    "difficulty": 3,
+    "text": "Cum se numeau formațiunile politice prestatale românești menționate în izvoarele medievale?",
+    "options": [
+      "Cnezate și voievodate",
+      "Comitate și scaune",
+      "Banate și pașalâcuri",
+      "Ducate și mărci"
+    ],
+    "correctIndex": 0,
+    "explanation": "Autonomiile locale românești erau organizate în cnezate și voievodate (numite și „țări\" — Terra Blacorum), conduse de cneji și voievozi."
+  },
+  {
+    "id": "aut-12",
+    "chapterId": "autonomii",
+    "difficulty": 2,
+    "text": "Prin ce act din 1541 Transilvania a devenit principat autonom?",
+    "options": [
+      "Sub suzeranitate otomană, după căderea Budei",
+      "Prin unirea cu Moldova",
+      "Prin decizia Dietei de la Pojon",
+      "Prin tratat cu Habsburgii"
+    ],
+    "correctIndex": 0,
+    "explanation": "După transformarea Ungariei centrale în pașalâc (1541), Transilvania a devenit principat autonom sub suzeranitatea Imperiului Otoman, plătind tribut Porții."
+  },
+  {
+    "id": "mod-01",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "Cine a condus revoluția din 1821 din Țara Românească?",
+    "options": ["Tudor Vladimirescu", "Alexandru Ipsilanti", "Ion Câmpineanu", "Gheorghe Lazăr"],
+    "correctIndex": 0,
+    "explanation": "Tudor Vladimirescu a condus revoluția de la 1821, al cărei program, „Cererile norodului românesc\", cerea limitarea abuzurilor și domni pământeni."
+  },
+  {
+    "id": "mod-02",
+    "chapterId": "stat-modern",
+    "difficulty": 2,
+    "text": "Ce acte cu rol de legi fundamentale au intrat în vigoare în Principate în 1831–1832?",
+    "options": [
+      "Regulamentele Organice",
+      "Constituția cărvunarilor",
+      "Convenția de la Akkerman",
+      "Proclamația de la Islaz"
+    ],
+    "correctIndex": 0,
+    "explanation": "Regulamentele Organice, elaborate sub supravegherea Rusiei, au intrat în vigoare în 1831 (Țara Românească) și 1832 (Moldova), modernizând instituțiile Principatelor."
+  },
+  {
+    "id": "mod-03",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "Care a fost programul revoluției de la 1848 din Țara Românească?",
+    "options": [
+      "Petiția-proclamație de la Iași",
+      "Proclamația de la Islaz",
+      "Petiția Națională de la Blaj",
+      "Dorințele partidei naționale"
+    ],
+    "correctIndex": 1,
+    "explanation": "Proclamația de la Islaz (9/21 iunie 1848) a fost programul revoluției muntene, cerând printre altele domn responsabil ales pe 5 ani și împroprietărirea țăranilor prin despăgubire."
+  },
+  {
+    "id": "mod-04",
+    "chapterId": "stat-modern",
+    "difficulty": 2,
+    "text": "Ce document internațional din 1858 a stabilit organizarea Principatelor Unite ale Moldovei și Valahiei?",
+    "options": [
+      "Tratatul de la Paris (1856)",
+      "Convenția de la Paris",
+      "Protocolul de la Londra",
+      "Tratatul de la Adrianopol"
+    ],
+    "correctIndex": 1,
+    "explanation": "Convenția de la Paris (august 1858), adoptată de cele șapte mari puteri, a servit drept lege fundamentală a Principatelor, permițând unirea prin dubla alegere a lui Cuza."
+  },
+  {
+    "id": "mod-05",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "La ce date a fost ales Alexandru Ioan Cuza domn al Moldovei, respectiv al Țării Românești (1859)?",
+    "options": [
+      "5 și 24 ianuarie",
+      "1 și 15 februarie",
+      "9 și 27 mai",
+      "10 și 23 aprilie"
+    ],
+    "correctIndex": 0,
+    "explanation": "Cuza a fost ales domn al Moldovei pe 5 ianuarie 1859 și al Țării Românești pe 24 ianuarie 1859 — dubla alegere care a realizat de facto unirea Principatelor."
+  },
+  {
+    "id": "mod-06",
+    "chapterId": "stat-modern",
+    "difficulty": 2,
+    "text": "Ce reformă a lui Cuza din decembrie 1863 a trecut în proprietatea statului averile mănăstirilor închinate?",
+    "options": [
+      "Reforma agrară",
+      "Secularizarea averilor mănăstirești",
+      "Reforma instrucțiunii publice",
+      "Legea comunală"
+    ],
+    "correctIndex": 1,
+    "explanation": "Legea secularizării (decembrie 1863) a trecut în proprietatea statului averile mănăstirești, care reprezentau circa un sfert din teritoriul țării."
+  },
+  {
+    "id": "mod-07",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "În ce an a fost adus Carol de Hohenzollern-Sigmaringen ca domnitor al României?",
+    "options": ["1859", "1866", "1877", "1881"],
+    "correctIndex": 1,
+    "explanation": "După abdicarea forțată a lui Cuza (februarie 1866), Carol I a fost adus pe tron în mai 1866, iar în iulie a fost promulgată prima Constituție a României."
+  },
+  {
+    "id": "mod-08",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "Când a fost proclamată independența de stat a României?",
+    "options": ["24 ianuarie 1859", "9 mai 1877", "1 decembrie 1918", "14 martie 1881"],
+    "correctIndex": 1,
+    "explanation": "Pe 9 mai 1877, Mihail Kogălniceanu a proclamat în parlament independența României, consfințită apoi pe câmpul de luptă în războiul din 1877–1878."
+  },
+  {
+    "id": "mod-09",
+    "chapterId": "stat-modern",
+    "difficulty": 2,
+    "text": "Ce a obținut România prin Congresul de la Berlin (1878)?",
+    "options": [
+      "Recunoașterea independenței și Dobrogea",
+      "Transilvania și Banatul",
+      "Basarabia întreagă",
+      "Cadrilaterul"
+    ],
+    "correctIndex": 0,
+    "explanation": "Congresul de la Berlin (1878) a recunoscut independența României și i-a atribuit Dobrogea, Delta Dunării și Insula Șerpilor, în schimbul cedării sudului Basarabiei către Rusia."
+  },
+  {
+    "id": "mod-10",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "În ce an România a fost proclamată regat?",
+    "options": ["1878", "1881", "1866", "1918"],
+    "correctIndex": 1,
+    "explanation": "Pe 14 martie 1881, parlamentul a proclamat România regat, iar Carol I a fost încoronat rege pe 10 mai 1881."
+  },
+  {
+    "id": "mod-11",
+    "chapterId": "stat-modern",
+    "difficulty": 1,
+    "text": "Ce s-a hotărât la Alba Iulia pe 1 decembrie 1918?",
+    "options": [
+      "Unirea Transilvaniei cu România",
+      "Unirea Basarabiei cu România",
+      "Proclamarea republicii",
+      "Intrarea României în război"
+    ],
+    "correctIndex": 0,
+    "explanation": "Marea Adunare Națională de la Alba Iulia (1 decembrie 1918) a votat unirea Transilvaniei, Banatului, Crișanei și Maramureșului cu România, desăvârșind Marea Unire."
+  },
+  {
+    "id": "mod-12",
+    "chapterId": "stat-modern",
+    "difficulty": 3,
+    "text": "Cine este autorul proiectului „Constituția cărvunarilor\" (1822)?",
+    "options": ["Ionică Tăutu", "Simion Bărnuțiu", "Mihail Sturdza", "Barbu Știrbei"],
+    "correctIndex": 0,
+    "explanation": "„Constituția cărvunarilor\", redactată de comisul Ionică Tăutu în Moldova (1822), a fost un proiect de modernizare care propunea limitarea puterii domnului și garantarea unor drepturi."
+  },
+  {
+    "id": "con-01",
+    "chapterId": "constitutii",
+    "difficulty": 1,
+    "text": "După modelul cărei constituții a fost elaborată Constituția României din 1866?",
+    "options": ["Constituția belgiană din 1831", "Constituția franceză din 1852", "Constituția prusacă", "Constituția elvețiană"],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1866, prima constituție internă românească, a avut ca model Constituția belgiană din 1831, considerată cea mai liberală din Europa."
+  },
+  {
+    "id": "con-02",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "Ce sistem de vot instituia Constituția din 1866?",
+    "options": ["Vot universal", "Vot cenzitar", "Vot pe stări", "Vot obligatoriu egal"],
+    "correctIndex": 1,
+    "explanation": "Constituția din 1866 prevedea votul cenzitar: dreptul de vot depindea de avere, alegătorii fiind împărțiți în colegii electorale."
+  },
+  {
+    "id": "con-03",
+    "chapterId": "constitutii",
+    "difficulty": 1,
+    "text": "Ce noutate majoră a adus Constituția din 1923 în privința dreptului de vot?",
+    "options": [
+      "Votul universal masculin",
+      "Votul femeilor",
+      "Votul de la 16 ani",
+      "Menținerea colegiilor cenzitare"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1923, „constituția unificării\", a consacrat votul universal, egal, direct, secret și obligatoriu pentru bărbații de peste 21 de ani."
+  },
+  {
+    "id": "con-04",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "Ce regim politic a instaurat Constituția din februarie 1938?",
+    "options": [
+      "Regimul autoritar al regelui Carol al II-lea",
+      "Republica parlamentară",
+      "Regimul comunist",
+      "Monarhia constituțională clasică"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1938 a legalizat regimul de autoritate monarhică al lui Carol al II-lea: regele devenea „capul statului\", iar separarea puterilor era practic desființată."
+  },
+  {
+    "id": "con-05",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "După modelul cărei constituții a fost redactată Constituția României din 1948?",
+    "options": [
+      "Constituția sovietică din 1936",
+      "Constituția belgiană din 1831",
+      "Constituția franceză din 1946",
+      "Constituția iugoslavă"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1948, care proclama Republica Populară Română, a fost copiată după Constituția stalinistă a URSS din 1936."
+  },
+  {
+    "id": "con-06",
+    "chapterId": "constitutii",
+    "difficulty": 3,
+    "text": "Ce prevedea explicit Constituția din 1952 în privința politicii externe?",
+    "options": [
+      "Neutralitatea permanentă",
+      "Prietenia și alianța cu URSS",
+      "Aderarea la NATO",
+      "Politica de neamestec"
+    ],
+    "correctIndex": 1,
+    "explanation": "Constituția din 1952 consacra subordonarea față de Moscova, menționând explicit prietenia cu URSS ca temelie a politicii externe a României."
+  },
+  {
+    "id": "con-07",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "Ce denumire a primit statul român prin Constituția din 1965?",
+    "options": [
+      "Republica Populară Română",
+      "Republica Socialistă România",
+      "Republica Democrată Română",
+      "Statul Național Legionar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Constituția din 1965 a schimbat numele statului în Republica Socialistă România și a consacrat rolul conducător al Partidului Comunist Român."
+  },
+  {
+    "id": "con-08",
+    "chapterId": "constitutii",
+    "difficulty": 1,
+    "text": "Cum a fost aprobată Constituția României din 1991?",
+    "options": [
+      "Prin referendum național",
+      "Prin decret prezidențial",
+      "Prin vot în Marea Adunare Națională",
+      "Prin acord internațional"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția postdecembristă a fost adoptată de Adunarea Constituantă și aprobată prin referendumul din 8 decembrie 1991; a fost revizuită în 2003."
+  },
+  {
+    "id": "con-09",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "Ce principiu fundamental al statului modern consacra Constituția din 1866?",
+    "options": [
+      "Separarea puterilor în stat",
+      "Partidul unic",
+      "Centralismul democratic",
+      "Corporatismul"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1866 consacra principiul separării puterilor în stat: legislativă (parlament bicameral), executivă (domn și guvern) și judecătorească."
+  },
+  {
+    "id": "con-10",
+    "chapterId": "constitutii",
+    "difficulty": 3,
+    "text": "Ce act cu valoare constituțională a fost adoptat în 1864, în timpul lui Cuza?",
+    "options": [
+      "Statutul Dezvoltător al Convenției de la Paris",
+      "Regulamentul Organic",
+      "Convenția de la Balta Liman",
+      "Pactul fundamental"
+    ],
+    "correctIndex": 0,
+    "explanation": "Statutul Dezvoltător al Convenției de la Paris (1864), aprobat prin plebiscit, a întărit puterea domnului și a introdus parlamentul bicameral (prin înființarea Corpului Ponderator)."
+  },
+  {
+    "id": "con-11",
+    "chapterId": "constitutii",
+    "difficulty": 3,
+    "text": "Cum definea Constituția din 1923 zăcămintele subsolului?",
+    "options": [
+      "Proprietate a statului",
+      "Proprietate privată absolută",
+      "Proprietate a autorităților locale",
+      "Bunuri fără stăpân"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constituția din 1923 a introdus principiul naționalizării subsolului: zăcămintele miniere și bogățiile de orice natură ale subsolului deveneau proprietatea statului."
+  },
+  {
+    "id": "con-12",
+    "chapterId": "constitutii",
+    "difficulty": 2,
+    "text": "Care constituție comunistă a consacrat pentru prima dată explicit rolul conducător al partidului unic?",
+    "options": ["Constituția din 1948", "Constituția din 1952", "Constituția din 1965", "Constituția din 1938"],
+    "correctIndex": 1,
+    "explanation": "Constituția din 1952 a menționat pentru prima dată explicit rolul conducător al Partidului Muncitoresc Român în stat, principiu preluat apoi și de Constituția din 1965."
+  },
+  {
+    "id": "pos-01",
+    "chapterId": "postbelica",
+    "difficulty": 1,
+    "text": "Ce guvern a fost impus la 6 martie 1945, sub presiune sovietică?",
+    "options": [
+      "Guvernul Petru Groza",
+      "Guvernul Nicolae Rădescu",
+      "Guvernul Constantin Sănătescu",
+      "Guvernul Ion Antonescu"
+    ],
+    "correctIndex": 0,
+    "explanation": "La 6 martie 1945 a fost instalat guvernul condus de Petru Groza, primul guvern dominat de comuniști, pas decisiv spre instaurarea regimului comunist."
+  },
+  {
+    "id": "pos-02",
+    "chapterId": "postbelica",
+    "difficulty": 1,
+    "text": "Ce eveniment a avut loc la 30 decembrie 1947?",
+    "options": [
+      "Abdicarea regelui Mihai I și proclamarea republicii",
+      "Naționalizarea întreprinderilor",
+      "Începutul colectivizării",
+      "Adoptarea primei constituții comuniste"
+    ],
+    "correctIndex": 0,
+    "explanation": "La 30 decembrie 1947, regele Mihai I a fost forțat să abdice, iar în aceeași zi a fost proclamată Republica Populară Română."
+  },
+  {
+    "id": "pos-03",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Când a avut loc naționalizarea principalelor mijloace de producție?",
+    "options": ["11 iunie 1948", "6 martie 1945", "30 decembrie 1947", "21 august 1968"],
+    "correctIndex": 0,
+    "explanation": "Pe 11 iunie 1948 au fost naționalizate întreprinderile industriale, bancare, de asigurări, miniere și de transport — baza economiei de comandă."
+  },
+  {
+    "id": "pos-04",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "În ce interval s-a desfășurat colectivizarea agriculturii?",
+    "options": ["1949–1962", "1945–1948", "1965–1971", "1948–1953"],
+    "correctIndex": 0,
+    "explanation": "Colectivizarea agriculturii a început în martie 1949 și a fost declarată încheiată în aprilie 1962, fiind însoțită de represiune împotriva țăranilor care s-au opus."
+  },
+  {
+    "id": "pos-05",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Ce document din 1964 marchează distanțarea României de Moscova?",
+    "options": [
+      "Declarația din aprilie 1964",
+      "Tezele din iulie",
+      "Declarația de la Praga",
+      "Protocolul de la Varșovia"
+    ],
+    "correctIndex": 0,
+    "explanation": "„Declarația din aprilie 1964\" a PMR a respins amestecul sovietic în treburile interne, afirmând dreptul fiecărui partid de a-și decide propria linie politică."
+  },
+  {
+    "id": "pos-06",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Ce au reprezentat „Tezele din iulie\" 1971?",
+    "options": [
+      "Începutul „revoluției culturale\" ceaușiste și înăsprirea ideologică",
+      "Un program de liberalizare economică",
+      "Planul de plată a datoriei externe",
+      "Reforma administrativă a județelor"
+    ],
+    "correctIndex": 0,
+    "explanation": "„Tezele din iulie\" (1971), inspirate de vizitele lui Ceaușescu în China și Coreea de Nord, au declanșat o „mini-revoluție culturală\": control ideologic strict asupra culturii."
+  },
+  {
+    "id": "pos-07",
+    "chapterId": "postbelica",
+    "difficulty": 1,
+    "text": "Ce poziție a adoptat Nicolae Ceaușescu față de invadarea Cehoslovaciei în august 1968?",
+    "options": [
+      "A condamnat public invazia",
+      "A trimis trupe alături de sovietici",
+      "A păstrat tăcerea",
+      "A cerut aderarea la NATO"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pe 21 august 1968, Ceaușescu a condamnat public, de la balconul Comitetului Central, invadarea Cehoslovaciei de către trupele Tratatului de la Varșovia — România nu a participat."
+  },
+  {
+    "id": "pos-08",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Cine a inițiat în 1977 o mișcare pentru drepturile omului, sprijinind „Carta 77\"?",
+    "options": ["Paul Goma", "Doina Cornea", "Vasile Paraschiv", "Radu Filipescu"],
+    "correctIndex": 0,
+    "explanation": "Scriitorul Paul Goma a lansat în 1977 o scrisoare de solidaritate cu „Carta 77\" cehoslovacă, devenind figura centrală a disidenței românești; a fost arestat și forțat să emigreze."
+  },
+  {
+    "id": "pos-09",
+    "chapterId": "postbelica",
+    "difficulty": 1,
+    "text": "În ce oraș a izbucnit revolta care a declanșat Revoluția din decembrie 1989?",
+    "options": ["Timișoara", "București", "Brașov", "Cluj-Napoca"],
+    "correctIndex": 0,
+    "explanation": "Revoluția a început la Timișoara pe 16 decembrie 1989, de la protestul împotriva evacuării pastorului László Tőkés, și s-a extins la București pe 21–22 decembrie."
+  },
+  {
+    "id": "pos-10",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Cum se numea poliția politică a regimului comunist din România?",
+    "options": ["Securitatea", "Siguranța", "Miliția", "NKVD"],
+    "correctIndex": 0,
+    "explanation": "Securitatea (Direcția Generală a Securității Poporului), înființată în 1948, a fost instrumentul principal de represiune al regimului comunist."
+  },
+  {
+    "id": "pos-11",
+    "chapterId": "postbelica",
+    "difficulty": 3,
+    "text": "Ce erau „sovromurile\"?",
+    "options": [
+      "Societăți mixte româno-sovietice prin care URSS exploata economia României",
+      "Cooperative agricole de producție",
+      "Organizații de tineret comunist",
+      "Unități ale armatei sovietice staționate în România"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sovromurile (1945–1956) au fost societăți mixte româno-sovietice prin care Uniunea Sovietică a exploatat resursele economice românești sub pretextul plății despăgubirilor de război."
+  },
+  {
+    "id": "pos-12",
+    "chapterId": "postbelica",
+    "difficulty": 2,
+    "text": "Ce revoltă muncitorească majoră a avut loc la Brașov?",
+    "options": [
+      "Revolta din 15 noiembrie 1987",
+      "Greva din Valea Jiului 1929",
+      "Revolta din 13 iunie 1990",
+      "Greva de la Grivița 1945"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pe 15 noiembrie 1987, muncitorii de la uzina „Steagul Roșu\" din Brașov s-au revoltat împotriva regimului Ceaușescu — unul dintre cele mai importante proteste anticomuniste dinainte de 1989."
+  },
+  {
+    "id": "rel-01",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Ce bătălie a purtat Mircea cel Bătrân împotriva otomanilor conduși de Baiazid I?",
+    "options": ["Rovine (1395)", "Vaslui (1475)", "Nicopole (1396)", "Varna (1444)"],
+    "correctIndex": 0,
+    "explanation": "La Rovine (1394/1395), Mircea cel Bătrân a învins oastea otomană condusă de sultanul Baiazid I Fulgerul, apărând independența Țării Românești."
+  },
+  {
+    "id": "rel-02",
+    "chapterId": "relatii-int",
+    "difficulty": 1,
+    "text": "Ce mare victorie antiotomană a obținut Ștefan cel Mare în ianuarie 1475?",
+    "options": ["Vaslui (Podul Înalt)", "Războieni", "Baia", "Codrii Cosminului"],
+    "correctIndex": 0,
+    "explanation": "La Vaslui (Podul Înalt), pe 10 ianuarie 1475, Ștefan cel Mare a zdrobit armata otomană condusă de Soliman-pașa — una dintre cele mai mari victorii creștine ale epocii."
+  },
+  {
+    "id": "rel-03",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Ce acțiune celebră a întreprins Vlad Țepeș în iunie 1462?",
+    "options": [
+      "Atacul de noapte asupra taberei sultanului Mehmed al II-lea",
+      "Asediul Constantinopolului",
+      "Bătălia de la Belgrad",
+      "Cucerirea Giurgiului"
+    ],
+    "correctIndex": 0,
+    "explanation": "În noaptea de 16–17 iunie 1462, Vlad Țepeș a atacat prin surprindere tabăra otomană de lângă Târgoviște, încercând să-l ucidă pe sultanul Mehmed al II-lea."
+  },
+  {
+    "id": "rel-04",
+    "chapterId": "relatii-int",
+    "difficulty": 1,
+    "text": "Unde a obținut Mihai Viteazul victoria din august 1595 împotriva lui Sinan-pașa?",
+    "options": ["Călugăreni", "Șelimbăr", "Guruslău", "Mirăslău"],
+    "correctIndex": 0,
+    "explanation": "La Călugăreni (13/23 august 1595), Mihai Viteazul a învins armata otomană a lui Sinan-pașa, victorie simbol a luptei antiotomane românești."
+  },
+  {
+    "id": "rel-05",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Ce cetate a apărat cu succes Iancu de Hunedoara în 1456, oprind înaintarea otomană?",
+    "options": ["Belgrad", "Chilia", "Constantinopol", "Buda"],
+    "correctIndex": 0,
+    "explanation": "În iulie 1456, Iancu de Hunedoara a apărat Belgradul împotriva lui Mehmed al II-lea, victorie care a oprit pentru decenii înaintarea otomană spre Europa Centrală."
+  },
+  {
+    "id": "rel-06",
+    "chapterId": "relatii-int",
+    "difficulty": 3,
+    "text": "Cum se numeau înțelegerile prin care Țările Române își reglementau raporturile cu Imperiul Otoman?",
+    "options": ["Capitulațiile", "Firmanele", "Hatișerifurile", "Sened-urile"],
+    "correctIndex": 0,
+    "explanation": "Capitulațiile erau înțelegeri care consacrau autonomia Țărilor Române în schimbul tributului: Poarta nu putea transforma țările în pașalâcuri, iar domnii rămâneau creștini."
+  },
+  {
+    "id": "rel-07",
+    "chapterId": "relatii-int",
+    "difficulty": 3,
+    "text": "Ce a primit Moldova prin Tratatul de la Paris (1856), după Războiul Crimeii?",
+    "options": [
+      "Cele trei județe din sudul Basarabiei (Cahul, Bolgrad, Ismail)",
+      "Bucovina",
+      "Delta Dunării",
+      "Transilvania"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tratatul de la Paris (1856) a retrocedat Moldovei județele Cahul, Bolgrad și Ismail din sudul Basarabiei și a înlocuit protectoratul rusesc cu garanția colectivă a marilor puteri."
+  },
+  {
+    "id": "rel-08",
+    "chapterId": "relatii-int",
+    "difficulty": 1,
+    "text": "De partea cui a intrat România în Primul Război Mondial, în august 1916?",
+    "options": ["Antantei", "Puterilor Centrale", "A rămas neutră tot războiul", "Triplei Alianțe"],
+    "correctIndex": 0,
+    "explanation": "România a intrat în război în august 1916 de partea Antantei (Franța, Marea Britanie, Rusia, Italia), cu scopul eliberării Transilvaniei."
+  },
+  {
+    "id": "rel-09",
+    "chapterId": "relatii-int",
+    "difficulty": 1,
+    "text": "Ce s-a întâmplat la 23 august 1944?",
+    "options": [
+      "România a întors armele împotriva Germaniei, trecând de partea Națiunilor Unite",
+      "România a intrat în război împotriva URSS",
+      "A fost semnat Dictatul de la Viena",
+      "A abdicat regele Mihai I"
+    ],
+    "correctIndex": 0,
+    "explanation": "La 23 august 1944, mareșalul Ion Antonescu a fost arestat din ordinul regelui Mihai I, iar România a ieșit din alianța cu Germania, alăturându-se coaliției Națiunilor Unite."
+  },
+  {
+    "id": "rel-10",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Din ce alianță regională interbelică a făcut parte România alături de Cehoslovacia și Iugoslavia?",
+    "options": ["Mica Înțelegere", "Înțelegerea Balcanică", "Axa Roma–Berlin", "Antanta Cordială"],
+    "correctIndex": 0,
+    "explanation": "Mica Înțelegere (1921) a fost alianța defensivă dintre România, Cehoslovacia și Iugoslavia, menită să mențină ordinea stabilită prin tratatele de pace de la Paris."
+  },
+  {
+    "id": "rel-11",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Ce teritorii a cedat România în urma notelor ultimative sovietice din 26–27 iunie 1940?",
+    "options": [
+      "Basarabia și nordul Bucovinei",
+      "Nord-vestul Transilvaniei",
+      "Cadrilaterul",
+      "Banatul sârbesc"
+    ],
+    "correctIndex": 0,
+    "explanation": "În urma ultimatumurilor sovietice din iunie 1940, România a cedat fără luptă Basarabia, nordul Bucovinei și ținutul Herța."
+  },
+  {
+    "id": "rel-12",
+    "chapterId": "relatii-int",
+    "difficulty": 2,
+    "text": "Ce teritoriu a pierdut România prin Dictatul de la Viena (30 august 1940)?",
+    "options": [
+      "Nord-vestul Transilvaniei, cedat Ungariei",
+      "Sudul Dobrogei, cedat Bulgariei",
+      "Basarabia, cedată URSS",
+      "Banatul, cedat Iugoslaviei"
+    ],
+    "correctIndex": 0,
+    "explanation": "Prin Dictatul de la Viena, impus de Germania și Italia, România a fost obligată să cedeze Ungariei nord-vestul Transilvaniei (circa 43.000 km²); teritoriul a revenit României în 1947."
+  }
+]
