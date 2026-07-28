@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~57.0.7",
+    "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.8",
     "expo-constants": "~57.0.7",
@@ -37,7 +38,7 @@
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
+    "validate": "tsx scripts/validate-content.ts",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
