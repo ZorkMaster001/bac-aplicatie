@@ -1,17 +1,22 @@
-import { Ionicons } from '@expo/vector-icons';
-import { Redirect, Tabs } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Redirect } from 'expo-router';
+import { NativeTabs } from 'expo-router/unstable-native-tabs';
 import { useEffect, useState } from 'react';
-import type { ColorValue } from 'react-native';
 
 import { useSettingsStore } from '@/stores/useSettingsStore';
 import { colors } from '@/theme';
 
-type IconName = keyof typeof Ionicons.glyphMap;
+const { Trigger } = NativeTabs;
+const { Icon, Label, VectorIcon } = Trigger;
 
-function tabIcon(outline: IconName, filled: IconName) {
-  return ({ focused, color, size }: { focused: boolean; color: ColorValue; size: number }) => (
-    <Ionicons name={focused ? filled : outline} size={size} color={color} />
-  );
+type IoniconName = keyof typeof Ionicons.glyphMap;
+
+// Pe iOS se folosesc SF Symbols, pe Android acelasi set Ionicons ca inainte.
+function icons(outline: IoniconName, filled: IoniconName) {
+  return {
+    default: <VectorIcon family={Ionicons} name={outline} />,
+    selected: <VectorIcon family={Ionicons} name={filled} />,
+  };
 }
 
 export default function TabsLayout() {
@@ -24,31 +29,22 @@ export default function TabsLayout() {
   if (!onboarded) return <Redirect href="/onboarding" />;
 
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: colors.accent,
-        tabBarInactiveTintColor: colors.textMuted,
-        tabBarStyle: {
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-        },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
-        sceneStyle: { backgroundColor: colors.bg },
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{ title: 'Acasă', tabBarIcon: tabIcon('home-outline', 'home') }}
-      />
-      <Tabs.Screen
-        name="materii"
-        options={{ title: 'Materii', tabBarIcon: tabIcon('library-outline', 'library') }}
-      />
-      <Tabs.Screen
-        name="profil"
-        options={{ title: 'Profil', tabBarIcon: tabIcon('person-outline', 'person') }}
-      />
-    </Tabs>
+    <NativeTabs tintColor={colors.accent}>
+      <Trigger name="index">
+        <Label>Acasă</Label>
+        <Icon sf={{ default: 'house', selected: 'house.fill' }} src={icons('home-outline', 'home')} />
+      </Trigger>
+      <Trigger name="materii">
+        <Label>Materii</Label>
+        <Icon
+          sf={{ default: 'books.vertical', selected: 'books.vertical.fill' }}
+          src={icons('library-outline', 'library')}
+        />
+      </Trigger>
+      <Trigger name="profil">
+        <Label>Profil</Label>
+        <Icon sf={{ default: 'person', selected: 'person.fill' }} src={icons('person-outline', 'person')} />
+      </Trigger>
+    </NativeTabs>
   );
 }
