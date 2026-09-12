@@ -25,12 +25,24 @@ Spec: `docs/superpowers/specs/2026-07-28-bacpro-demo-design.md` · Plan: `docs/s
 - [x] Profil: statistici, realizări, toggle notificări, deconectare și ștergerea completă a datelor (profil de pe cont + progres + setări + Pro + notificări programate), urmată de deconectare — rămâne doar contul
 - [x] Monetizare: 1 simulare/zi gratuit, 3 explicații gratuite la examen, paywall Pro **2 €/lună, 7 zile gratis** (mock, pregătit pentru RevenueCat), reclamele dispar la Pro
 
+## Build nativ pe iPhone
+
+`npx expo run:ios --device <udid> --configuration Release` produce o aplicație de sine
+stătătoare (fără Metro, fără Expo Go), instalată direct pe telefon. Notificările locale merg
+aici, spre deosebire de Expo Go.
+
+Două plugin-uri din `plugins/` există doar ca build-ul să pornească pe Xcode 27 — se șterg când
+Expo rezolvă problema în amonte: `withUISceneLifecycle` (Expo SDK 57 nu adoptă încă ciclul
+UIScene, iar iOS 27 îl cere — expo/expo#46663) și `withoutPushNotifications` (conturile Apple
+gratuite nu pot semna capabilitatea Push Notifications).
+
 ## Limitări cunoscute (demo)
 
 - **Notificările nu merg în Expo Go** (Android SDK 53+) — serviciul devine no-op elegant; merg complet într-un development build (`npx expo run:android`).
 - Reclamele și plata sunt mock-uri elegante în spatele interfețelor `AdService` / `MonetizationService` — se înlocuiesc cu AdMob / RevenueCat fără a atinge ecranele.
 - Pro se activează local (nu există server); pentru a reveni la starea free, șterge datele aplicației Expo Go sau dezinstaleaz-o.
 - **Progresul (XP, serie, stele) rămâne local pe telefon**, nu urmează contul. Dacă intră alt cont pe același telefon, progresul se resetează, ca să nu moștenească XP-ul altcuiva.
+- Contul Apple e unul personal (gratuit), deci aplicația instalată pe telefon **expiră după 7 zile** și trebuie reinstalată.
 - Proiectul Supabase cere confirmarea emailului, iar mailerul implicit e limitat la câteva mesaje pe oră. Pentru demo, oprește „Confirm email" din **Authentication → Sign In / Providers → Email**.
 
 ## Roadmap după demo
