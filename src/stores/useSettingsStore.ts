@@ -1,31 +1,30 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { nextBacDate } from '../lib/dates';
 
+// Doar setări legate de dispozitiv. Numele și data Bacului stau pe cont,
+// în user_metadata — vezi useAuthStore.
 interface SettingsState {
-  name: string;
-  bacDate: string; // 'YYYY-MM-DD'
-  onboarded: boolean;
   notificationsEnabled: boolean;
-  setName: (name: string) => void;
-  setBacDate: (iso: string) => void;
-  completeOnboarding: () => void;
   setNotificationsEnabled: (on: boolean) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
   persist(
     (set) => ({
-      name: '',
-      bacDate: nextBacDate(),
-      onboarded: false,
       notificationsEnabled: false,
-      setName: (name) => set({ name }),
-      setBacDate: (bacDate) => set({ bacDate }),
-      completeOnboarding: () => set({ onboarded: true }),
       setNotificationsEnabled: (notificationsEnabled) => set({ notificationsEnabled }),
     }),
-    { name: 'bacpro-settings', storage: createJSONStorage(() => AsyncStorage) }
+    {
+      name: 'bacpro-settings',
+      storage: createJSONStorage(() => AsyncStorage),
+      // v1 ținea name/bacDate/onboarded local; acum vin de pe cont.
+      version: 2,
+      migrate: (persisted) => ({
+        notificationsEnabled: Boolean(
+          (persisted as { notificationsEnabled?: boolean } | null)?.notificationsEnabled
+        ),
+      }),
+    }
   )
 );

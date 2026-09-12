@@ -1,9 +1,8 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Redirect } from 'expo-router';
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
-import { useEffect, useState } from 'react';
 
-import { useSettingsStore } from '@/stores/useSettingsStore';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { colors } from '@/theme';
 
 const { Trigger } = NativeTabs;
@@ -20,13 +19,14 @@ function icons(outline: IoniconName, filled: IoniconName) {
 }
 
 export default function TabsLayout() {
-  const onboarded = useSettingsStore((s) => s.onboarded);
-  const [hydrated, setHydrated] = useState(useSettingsStore.persist.hasHydrated());
+  const status = useAuthStore((s) => s.status);
+  const profile = useAuthStore((s) => s.profile);
 
-  useEffect(() => useSettingsStore.persist.onFinishHydration(() => setHydrated(true)), []);
-
-  if (!hydrated) return null;
-  if (!onboarded) return <Redirect href="/onboarding" />;
+  // Poarta aplicației: fără cont nu se intră, iar un cont fără nume și dată
+  // de Bac trece mai întâi prin onboarding.
+  if (status === 'loading') return null;
+  if (status === 'signedOut') return <Redirect href="/auth" />;
+  if (!profile) return <Redirect href="/onboarding" />;
 
   return (
     <NativeTabs tintColor={colors.accent}>

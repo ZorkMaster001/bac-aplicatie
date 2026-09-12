@@ -22,13 +22,15 @@ interface ProgressState {
   examsToday: number;
   lastChapterId: ChapterId | null;
   achievements: string[];
+  lastUserId: string | null;
 
   addAnswer: (correct: boolean) => void;
   completeRun: (chapterId: ChapterId, correct: number, total: number) => number; // XP câștigat
   completeExam: (nota: number) => number; // XP câștigat
   canStartExam: (isPro: boolean) => boolean;
   registerExamStart: () => void;
-  resetAll: () => void;
+  claimFor: (userId: string) => void;
+  wipe: () => void;
 }
 
 const initial = {
@@ -43,6 +45,7 @@ const initial = {
   examsToday: 0,
   lastChapterId: null as ChapterId | null,
   achievements: [] as string[],
+  lastUserId: null as string | null,
 };
 
 function touchStreak(state: { streakCount: number; lastActiveDay: string | null }) {
@@ -131,7 +134,19 @@ export const useProgressStore = create<ProgressState>()(
             : { examDay: today, examsToday: 1 };
         }),
 
-      resetAll: () => set({ ...initial }),
+      // Progresul e legat de contul care l-a făcut. Alt cont pe același
+      // telefon începe de la zero, nu moștenește XP-ul precedentului.
+      claimFor: (userId) =>
+        set((s) =>
+          s.lastUserId && s.lastUserId !== userId
+            ? { ...initial, lastUserId: userId }
+            : { lastUserId: userId }
+        ),
+
+      // Ștergere totală, inclusiv proprietarul dispozitivului. E apelată doar
+      // ca parte din wipeAllDataAndSignOut, deci după ea urmează deconectarea
+      // și nu mai există progres pe care alt cont să-l moștenească.
+      wipe: () => set({ ...initial }),
     }),
     { name: 'bacpro-progress', storage: createJSONStorage(() => AsyncStorage) }
   )

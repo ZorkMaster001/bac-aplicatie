@@ -1,13 +1,18 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { Alert, StyleSheet, Switch, Text, View } from 'react-native';
+import { useState } from 'react';
+import { ActivityIndicator, Alert, StyleSheet, Switch, Text, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
 import { AchievementBadge } from '@/components/AchievementBadge';
 import { Card } from '@/components/Card';
 import { Screen } from '@/components/Screen';
+import { getSpecializare, PROBA_A, PROBE_C, PROBE_D, shortLabel } from '@/data/bac';
 import { ACHIEVEMENTS, levelFromXp } from '@/lib/gamification';
+import { wipeAllDataAndSignOut } from '@/services/account';
 import { cancelAll, requestPermission, rescheduleAll } from '@/services/notifications';
+import { supabase } from '@/services/supabase';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { useProgressStore } from '@/stores/useProgressStore';
 import { useProStore } from '@/stores/useProStore';
 import { useSettingsStore } from '@/stores/useSettingsStore';
@@ -15,13 +20,16 @@ import { colors, radius, spacing, type } from '@/theme';
 
 export default function ProfilScreen() {
   const router = useRouter();
-  const name = useSettingsStore((s) => s.name);
-  const bacDate = useSettingsStore((s) => s.bacDate);
+  const profile = useAuthStore((s) => s.profile);
+  const email = useAuthStore((s) => s.user?.email);
   const notificationsEnabled = useSettingsStore((s) => s.notificationsEnabled);
   const setNotificationsEnabled = useSettingsStore((s) => s.setNotificationsEnabled);
   const isPro = useProStore((s) => s.isPro);
   const progress = useProgressStore();
+  const [wiping, setWiping] = useState(false);
 
+  const bacDate = profile?.bacDate ?? '';
+  const spec = getSpecializare(profile?.specializareId);
   const { level } = levelFromXp(progress.xp);
   const accuracy =
     progress.answered > 0 ? Math.round((progress.correct / progress.answered) * 100) : 0;
@@ -42,11 +50,35 @@ export default function ProfilScreen() {
     }
   };
 
-  const confirmReset = () => {
-    Alert.alert('Resetezi progresul?', 'XP, seria și stelele se pierd definitiv.', [
-      { text: 'Renunț', style: 'cancel' },
-      { text: 'Resetez', style: 'destructive', onPress: () => progress.resetAll() },
+  const confirmSignOut = () => {
+    Alert.alert('Ieși din cont?', 'Progresul rămâne salvat pe acest telefon.', [
+      { text: 'Rămân', style: 'cancel' },
+      { text: 'Ies', style: 'destructive', onPress: () => supabase.auth.signOut() },
     ]);
+  };
+
+  const confirmWipe = () => {
+    Alert.alert(
+      'Ștergi toate datele?',
+      'Progresul, realizările, setările și profilul (nume, data Bacului) se șterg ' +
+        'definitiv. Contul tău rămâne, dar vei fi deconectat.',
+      [
+        { text: 'Renunț', style: 'cancel' },
+        {
+          text: 'Șterg tot',
+          style: 'destructive',
+          onPress: async () => {
+            setWiping(true);
+            const result = await wipeAllDataAndSignOut();
+            // La succes ecranul dispare singur: poarta din (tabs) duce la /auth.
+            if (!result.ok) {
+              setWiping(false);
+              Alert.alert('Nu s-au putut șterge datele', result.message);
+            }
+          },
+        },
+      ]
+    );
   };
 
   return (
@@ -54,10 +86,12 @@ export default function ProfilScreen() {
       <View style={styles.stack}>
         <Animated.View entering={FadeInDown.duration(400)} style={styles.header}>
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{(name || 'B').charAt(0).toUpperCase()}</Text>
+            <Text style={styles.avatarText}>
+              {(profile?.name || 'B').charAt(0).toUpperCase()}
+            </Text>
           </View>
           <View>
-            <Text style={styles.name}>{name || 'Campion'}</Text>
+            <Text style={styles.name}>{profile?.name ?? 'Campion'}</Text>
             <Text style={styles.level}>Nivel {level}</Text>
           </View>
         </Animated.View>
@@ -134,11 +168,64 @@ export default function ProfilScreen() {
           )}
         </Animated.View>
 
-        <Animated.View entering={FadeInDown.delay(400).duration(400)}>
-          <Card onPress={confirmReset}>
+        <Animated.View entering={FadeInDown.delay(360).duration(400)}>
+          <Card onPress={() => router.push('/probe')}>
             <View style={styles.row}>
-              <Ionicons name="trash-outline" size={20} color={colors.error} />
-              <Text style={styles.resetText}>Resetează progresul</Text>
+              <Ionicons name="ribbon-outline" size={22} color={colors.accent} />
+              <View style={styles.rowText}>
+                <Text style={styles.rowTitle}>Probele mele</Text>
+                <Text style={styles.rowSubtitle} numberOfLines={2}>
+                  {spec && profile
+                    ? [
+                        shortLabel(PROBA_A),
+                        shortLabel(PROBE_C[spec.probaC]),
+                        shortLabel(PROBE_D[profile.probaD]),
+                      ].join(' · ')
+                    : '—'}
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={colors.textMuted} />
+            </View>
+          </Card>
+        </Animated.View>
+
+        <Animated.View entering={FadeInDown.delay(400).duration(400)}>
+          <Card>
+            <View style={styles.row}>
+              <Ionicons name="mail-outline" size={22} color={colors.accent} />
+              <View style={styles.rowText}>
+                <Text style={styles.rowTitle}>Cont</Text>
+                <Text style={styles.rowSubtitle} numberOfLines={1}>
+                  {email ?? '—'}
+                </Text>
+              </View>
+            </View>
+          </Card>
+        </Animated.View>
+
+        <Animated.View entering={FadeInDown.delay(480).duration(400)}>
+          <Card onPress={wiping ? undefined : confirmSignOut}>
+            <View style={styles.row}>
+              <Ionicons name="log-out-outline" size={20} color={colors.text} />
+              <Text style={styles.signOutText}>Deconectare</Text>
+            </View>
+          </Card>
+        </Animated.View>
+
+        <Animated.View entering={FadeInDown.delay(560).duration(400)}>
+          <Card onPress={wiping ? undefined : confirmWipe}>
+            <View style={styles.row}>
+              {wiping ? (
+                <ActivityIndicator size="small" color={colors.error} />
+              ) : (
+                <Ionicons name="trash-outline" size={20} color={colors.error} />
+              )}
+              <View style={styles.rowText}>
+                <Text style={styles.resetText}>
+                  {wiping ? 'Se șterge…' : 'Șterge toate datele'}
+                </Text>
+                <Text style={styles.rowSubtitle}>Contul rămâne · vei fi deconectat</Text>
+              </View>
             </View>
           </Card>
         </Animated.View>
@@ -184,5 +271,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
   proActiveText: { fontSize: type.body, fontWeight: '700', color: colors.text },
+  signOutText: { fontSize: type.body, fontWeight: '600', color: colors.text },
   resetText: { fontSize: type.body, fontWeight: '600', color: colors.error },
 });

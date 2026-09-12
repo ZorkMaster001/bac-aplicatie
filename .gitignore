@@ -31,6 +31,8 @@ yarn-error.*
 *.pem
 
 # local env files
+# .env ține cheile Supabase și nu se comită; .env.example e șablonul urmărit.
+.env
 .env*.local
 
 # typescript
