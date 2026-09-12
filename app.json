@@ -8,6 +8,7 @@
     "scheme": "bacaplicatie",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "bundleIdentifier": "com.aievea.bacpro",
       "icon": "./assets/expo.icon"
     },
     "android": {
@@ -34,7 +35,9 @@
         }
       ],
       "expo-image",
-      "expo-web-browser"
+      "expo-web-browser",
+      "./plugins/withoutPushNotifications",
+      "./plugins/withUISceneLifecycle"
     ],
     "experiments": {
       "typedRoutes": true,
