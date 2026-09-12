@@ -15,7 +15,7 @@ export function Screen({ children, scroll = false }: Props) {
       {scroll ? (
         <ScrollView
           style={styles.flex}
-          contentContainerStyle={styles.content}
+          contentContainerStyle={[styles.content, styles.scrollContent]}
           showsVerticalScrollIndicator={false}
         >
           {children}
@@ -31,4 +31,7 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.bg },
   flex: { flex: 1 },
   content: { padding: spacing(5), paddingBottom: spacing(8) },
+  // Bara de taburi de pe iOS 26 plutește peste conținut, așa că ecranele care
+  // se derulează au nevoie de loc în plus ca ultimul card să rămână vizibil.
+  scrollContent: { paddingBottom: spacing(28) },
 });
