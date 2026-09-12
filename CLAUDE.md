@@ -1,1 +1,118 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 @AGENTS.md
+
+## Project
+
+**BacPro** — gamified Expo / React Native app for the Romanian *Bacalaureat*, built like a driving-licence quiz app. Demo scope: History only (72 questions), all content local, no backend, mock ads and payments.
+
+Design spec and the 12-task build plan are in `docs/superpowers/`. `PROGRESS.md` is the living status + roadmap document (in Romanian) and is expected to be updated when demo scope changes.
+
+## Commands
+
+```bash
+npm start                                   # Metro; then i / a / w, or scan with Expo Go
+npm run ios | npm run android | npm run web
+
+npx tsc --noEmit                            # the main check — run before every commit
+npx --yes tsx scripts/validate-content.ts   # question-bank validation
+npx expo install --fix                      # realign deps with the installed SDK
+```
+
+- **There is no test framework.** `npx tsc --noEmit` (strict) plus the content validator are the entire automated suite; everything else is manual verification in Expo Go or a simulator. Keep logic in pure helpers (`src/lib/`) so it stays checkable.
+- `npm run validate` is broken — it invokes `tsx`, which is not a devDependency. Use the `npx --yes tsx …` form above.
+- `npm run lint` (`expo lint`) is **not configured**: no ESLint config file, eslint not installed. Running it scaffolds a setup rather than checking anything — don't treat it as a gate.
+- Env vars live in `.env`, which is **gitignored** — a fresh clone starts with `cp .env.example .env` and fills in `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_KEY` from Supabase → Project Settings → API Keys. They are read **when Metro starts**, not per reload, so after editing `.env` restart with `npx expo start --clear` — otherwise `src/services/supabase.ts` throws on boot.
+- Install native/Expo packages with `npx expo install`, never plain `npm install`. Expo Go ships prebuilt native code, so a drifting JS dep crashes at launch as a native SIGSEGV with no red box (commit `5ac375f`: react-native-worklets 0.10.0 vs 0.10.1 took down every screen using Reanimated).
+
+## Architecture
+
+### Routing — expo-router, routes in `src/app/` (not a root `app/`)
+
+`app.json` enables `typedRoutes` and `reactCompiler`. React Compiler is on, so manual `useMemo`/`useCallback` memoization is usually unnecessary.
+
+- `src/app/_layout.tsx` — root Stack, all headers hidden, `paywall` presented as a modal.
+- `src/app/(tabs)/_layout.tsx` — **native** tab bar via `expo-router/unstable-native-tabs` (`NativeTabs`): SF Symbols on iOS (Liquid Glass for free on iOS 26), the same Ionicons on Android through `VectorIcon`. Don't set `tabBarStyle`/opaque backgrounds here — that paints over the system material; only `tintColor` is kept.
+- This layout is also the **auth gate**, in this order: `status === 'loading'` → render `null`; `signedOut` → `<Redirect href="/auth" />`; no `profile` → `<Redirect href="/onboarding" />`; else the tabs. `/auth` and `/onboarding` carry the mirrored guards so no route is reachable in the wrong state.
+- Flow: `/auth` → `/onboarding` → tabs → `/istorie` (chapter list) → `/quiz/[chapterId]` → `/results`; `/exam` → `/results`; `/paywall` from ads, exam gate and results upsell.
+
+Quiz and exam hand off to `/results` with **`router.replace` and string URL params** (`mode`, `correct`, `total`, `xp`, plus `chapterId` or `qids`/`answers` as comma-joined lists). `results.tsx` re-resolves questions from `istorie.json` by id. Keep that shape — replace (not push) is what stops Back from re-entering a finished run.
+
+### State — four Zustand stores
+
+Three persist to AsyncStorage (`bacpro-progress`, `bacpro-settings`, `bacpro-pro`); the auth store does not.
+
+- `useProgressStore` — XP, streak, per-chapter best accuracy, totals, achievements, daily exam counter. `completeRun`/`completeExam` return the XP gained and are the only places that award XP, touch the streak (`touchStreak` via `todayKey`/`isYesterday`) and unlock achievements. `claimFor(userId)` wipes progress when a *different* account signs in on the same device — progress is per-device, so without it accounts inherit each other's XP. `wipe()` clears everything including `lastUserId`, and is only ever called from `wipeAllDataAndSignOut()`.
+- `useSettingsStore` — `notificationsEnabled` only, which is genuinely per-device. Persisted at `version: 2`; v1 also held `name`/`bacDate`/`onboarded` and the `migrate` drops them.
+- `useProStore` — single `isPro` flag; local only, no server.
+- `useAuthStore` — **not persisted**, because supabase-js owns session persistence. Holds `status` (`loading`/`signedOut`/`signedIn`), the `user`, and a derived `profile`.
+
+Subscribe with selectors (`useProgressStore((s) => s.xp)`), not whole-store reads, except where a screen genuinely needs everything (`profil.tsx`).
+
+### Game rules live in one place
+
+`src/lib/gamification.ts` is the single source of truth: `gradeFromScore` (`1 + 9·correct/total`, 2 decimals, pass ≥ 5), `xpForRun` (10/correct, +50 for a perfect run of ≥10), `xpForExam` (`nota·20`), `levelFromXp` (cumulative 100·n thresholds), `starsForAccuracy` (≥0.6 / ≥0.8 / 1.0), and the `ACHIEVEMENTS` list. `src/lib/dates.ts` holds local-timezone date keys and `nextBacDate()`. Never re-derive these formulas inline in a screen.
+
+### Auth — Supabase email + password
+
+`src/services/supabase.ts` builds the client with `storage: AsyncStorage` (the same store everything else uses — deliberately not `expo-secure-store`, which is unsupported on web and caps values near 2 KB) plus `autoRefreshToken`, `persistSession`, and `detectSessionInUrl: false`. It also exports `authErrorMessage()`, which maps Supabase `error.code` values to Romanian copy — add new codes there, never raw English strings in a screen.
+
+`src/app/_layout.tsx` bootstraps auth exactly once: `getSession()` → store, `onAuthStateChange` → store, and `AppState` driving `startAutoRefresh`/`stopAutoRefresh` (tokens only refresh in the foreground). All three are torn down on unmount.
+
+**The profile lives in Supabase `user_metadata`** (`name`, `bac_date`, `bac_specializare`, `bac_proba_d`, `bac_proba_d_optiune`) — no tables, no RLS, nothing to configure in the dashboard. `useAuthStore.profile` derives from it and is `null` until the required keys exist *and validate* (an unknown `bac_specializare`, or a `bac_proba_d` not offered by that specialization, yields `null`); that null is what routes an incomplete account to `/onboarding`. Note `user_metadata` already ships `email`/`sub` from Supabase, so check the specific keys, never "is the object empty". Because supabase-js persists the whole user, name and Bac date read fine offline.
+
+Anything writing metadata (`supabase.auth.updateUser`) must push the returned user into the store **before** navigating — otherwise the gate still sees an empty profile and bounces straight back to onboarding.
+
+The project has email as its only enabled provider and requires email confirmation, so `signUp` usually returns `session: null` and `auth.tsx` shows a "check your inbox" state. A signup whose `data.user.identities` is empty means the address is already registered — Supabase disguises it rather than leaking which emails exist.
+
+### Deleting a user's data
+
+`src/services/account.ts` → `wipeAllDataAndSignOut()` is the single entry point, called only from Profil. It clears, in this order: the server-side profile (`user_metadata.name` / `bac_date` set to `null`), scheduled notifications, then the three persisted stores (`wipe()`, `notificationsEnabled: false`, `deactivatePro()`), and finally signs out. Only the account itself — email and password — survives.
+
+Order is load-bearing: the profile lives on the server, so it must be cleared **while the session is still valid**, i.e. before `signOut()`. The function bails out before touching anything local if that server write fails, so a failure leaves the user fully intact rather than half-wiped. It then re-checks the returned user with the exported `profileFrom()` — the same predicate the routing gate uses — so a profile that silently survived becomes a visible error instead of a user who skips onboarding on next sign-in.
+
+### Bac exam structure — `src/data/bac.ts`
+
+Reference data for the Romanian Bac, verified against the Ministry's official 2026 model-subject archives. Three rules drive every screen that touches it:
+
+- **E)a (`PROBA_A`, Limba și literatura română) is unconditional** — every candidate sits it regardless of filieră or profil, so it is never asked about and always shown. Materii lists the three *graded* written exams: E)a, E)c, E)d.
+- **E)c is never stored** — it is a function of the specialization (`probaCLabel()`), and the UI must present it as fixed, never as a choice.
+- **E)d depends on the specialization**, so the two onboarding questions are strictly ordered; changing the specialization invalidates a previously picked E)d and the code resets it.
+- **Sub-options differ in kind.** Informatică (language), Chimie and Biologie are declared at enrolment — they have genuinely separate exam papers. **Fizică is not**: one paper carries four areas and the candidate picks two *in the exam room*, so the app stores it only as a study preference and says so. `probaDComplete()` encodes the "exactly `pick` values" rule.
+
+Not modelled yet: the competence tests (A oral Romanian, C foreign language, D digital) and the minority-language pair (E)b written, B oral), which would need a "did you study in a minority language?" question. A full Bac is six probe for most students, eight for minorities — the app deliberately covers only the three scored 1–10.
+
+Two traps the data encodes deliberately: teoretic uman gets **Sociologie** but vocațional does not, and Informatică's programme follows the specialization (MI vs SN — `informaticaPrograma()`), it is not "intensiv/neintensiv" and not chosen.
+
+`scripts/validate-content.ts` checks this table alongside the question bank — every specialization has a non-empty, known E)d list, maths implies an `M_*` programme, and Fizică keeps exactly four areas of which two are picked.
+
+Onboarding is four steps and **resumes at the first unanswered one** by reading raw `user_metadata`, so accounts created before a field existed aren't marched through questions they already answered. `src/app/probe.tsx` re-uses the same two pickers so a choice stays editable from Profil.
+
+### Free vs Pro gating — exactly three places
+
+1. `AdBanner` returns `null` when Pro.
+2. Exam: `canStartExam(isPro)` / `registerExamStart()` — free users get one simulation per day, and an abandoned attempt still consumes it.
+3. `results.tsx`: free users see only the first 3 wrong-answer explanations.
+
+`src/services/ads.ts` and `src/services/monetization.ts` are deliberate mocks behind small interfaces (`getOffer`/`purchase`/`restore`, RevenueCat-shaped) so AdMob/RevenueCat can drop in without touching any screen.
+
+### Notifications are Expo Go-hostile by design
+
+`src/services/notifications.ts` loads `expo-notifications` through a lazy `require` and degrades to a no-op: the module throws on Android in Expo Go (SDK 53+). Every exported function swallows errors and returns a safe value. **Never import `expo-notifications` at module scope** anywhere else, or Expo Go breaks again. Real scheduling (daily streak reminder at 19:30 + Bac countdown milestones) only works in a development build.
+
+### Content
+
+`src/data/istorie.json` — 72 questions, 12 per chapter, over the six real Bac History chapters. `ChapterId` (`src/data/types.ts`), `CHAPTERS` (`src/data/chapters.ts`) and the JSON must stay in sync; `src/data/index.ts` exposes `getQuestionsByChapter`, `getSessionQuestions` (10 shuffled) and `getExamQuestions` (30 spread evenly across chapters). `scripts/validate-content.ts` enforces unique ids, a valid chapter, exactly 4 distinct options, a valid `correctIndex`, non-empty text and explanation, difficulty 1–3, ≥10 per chapter and ≥70 total — run it after any content edit.
+
+## Conventions
+
+- **All user-facing copy is Romanian, with diacritics.** Code comments are Romanian too; match that when editing existing files.
+- Imports: `@/…` alias across folders (`@/components/Card`, `@/theme`, `@/data`); plain relative paths only for siblings (`./PressableScale`, `./types`) and inside `src/stores`, `src/services`, `src/data`, `src/lib`.
+- Screens are default exports named `XxxScreen`; components, hooks and helpers are named exports.
+- Style only from `src/theme` — `colors`, `spacing(n)` (= 4n), `radius`, `type`. `StyleSheet.create` goes at the bottom of the file. Ionicons are used in outline/filled pairs (outline = inactive).
+- Reusable shells: `Screen` (safe area + padding, `scroll` prop), `Card` (becomes pressable when given `onPress`), `PressableScale` (the press-scale spring behind every tappable thing).
+- Animation is Reanimated: `FadeInDown` with staggered `.delay(80 · index)` for lists, shared values + `withTiming`/`withSequence` for shakes and bars.
+- Destructive exits use `navigation.addListener('beforeRemove')` + `Alert.alert`, guarded by a `finishedRef` so the programmatic navigation after submit isn't intercepted (`quiz/[chapterId].tsx`, `exam.tsx`).
+- Commits: lowercase `feat:` / `fix:` subject, with a body explaining the *why* and stating what was verified (tsc, validator, what was exercised in the emulator).
